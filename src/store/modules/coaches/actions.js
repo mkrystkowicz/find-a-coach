@@ -22,4 +22,26 @@ export default {
       id: userId,
     });
   },
+  async loadCoaches(context, _) {
+    const response = await fetch(
+      `https://find-a-coach-d7428-default-rtdb.europe-west1.firebasedatabase.app/coaches.json`
+    );
+    const responseData = await response.json();
+    const coaches = [];
+
+    for (const key in responseData) {
+      const coach = {
+        id: key,
+        firstName: responseData[key].firstName,
+        lastName: responseData[key].lastName,
+        description: responseData[key].desc,
+        hourlyRate: responseData[key].hourlyRate,
+        areas: responseData[key].areas,
+      };
+
+      coaches.push(coach);
+    }
+
+    context.commit('setCoaches', coaches);
+  },
 };
