@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import BaseButton from '../UI/BaseButton.vue';
 export default {
   computed: {
     isLoggedIn() {
@@ -33,6 +32,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('logout');
+      this.$router.replace('/coaches');
     },
   },
 };
