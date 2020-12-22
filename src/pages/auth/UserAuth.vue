@@ -30,9 +30,7 @@
 </template>
 
 <script>
-import BaseSpinner from '../../components/UI/BaseSpinner.vue';
 export default {
-  components: { BaseSpinner },
   data() {
     return {
       email: '',
